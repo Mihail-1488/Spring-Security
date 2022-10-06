@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+</head>
+<body style="background-color:rgba(244, 91, 105, 1); font-family:'Asap', sans-serif; align-content: center;">
+<form name ="f" method="post" action="/process_login" style="overflow: hidden;background-color: white; padding: 40px 30px 30px 30px;
+  border-radius: 10px; position: fixed;
+ top: 50%;
+ left: 50%;
+ margin-top: -200px;
+ margin-left: -200px;
+  width: 400px;">
+    <h1 style="font-size: 23px">Sign In</h1>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    <div class="username">
+   <label for="username">Введите имя пользователя: </label>
+    <input type="text" name="username" id="username" style="font-family:'Asap', sans-serif;
+    display: block;
+    border-radius: 5px;
+    font-size: 16px;
+    background: white;
+    width: 100%;
+    border: 0;
+    padding: 10px 10px;
+    margin: 15px -10px;"/>
+    </div>
+    <br/>
+    <label for="password">Введите пароль: </label>
+    <input type="text" name="password" id="password" style=" font-family:'Asap', sans-serif;
+    display: block;
+    border-radius: 5px;
+    font-size: 16px;
+    background: white;
+    width: 100%;
+    border: 0;
+    padding: 10px 10px;
+    margin: 15px -10px;"/>
+    <br/>
+    <input type="submit" value="Login" style="font-family:'Asap', sans-serif;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    width: 80px;
+    border: 0;
+    padding: 10px 0;
+    margin-top: 10px;
+    margin-left: -5px;
+    border-radius: 5px;
+    background-color: rgba(244, 91, 105, 1);"/>
+
+    <div th:if="${param.error}" style="color: red">
+        Неправильный пароль или имя
+    </div>
+
+</form>
+
+</body>
+</html>
